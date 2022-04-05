@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>树与二叉树 - 花椒猫猫的小窝</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="个人博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="树与二叉树1.树的概念​    树（Tree）是n（n≥0）个结点的有限集。n&#x3D;0时被称为空树。在任意一颗空树中：  有且仅有一个特定的节点被称为根节点（root）  当$n&gt;1$时，其余节点可以分为m（m&gt;0）个互相不相交的有限集T1、T2、……、Tm，其中每一个集合本身又是一棵树，称之为根的子树（Subtree$。如图左侧即为树的一种；而右侧由于子树存在相交不为空情况则不为树。 g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树与二叉树">
+<meta property="og:url" content="https://pepperrcat.github.io/2022/04/03/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
+<meta property="og:site_name" content="花椒猫猫的小窝">
+<meta property="og:description" content="树与二叉树1.树的概念​    树（Tree）是n（n≥0）个结点的有限集。n&#x3D;0时被称为空树。在任意一颗空树中：  有且仅有一个特定的节点被称为根节点（root）  当$n&gt;1$时，其余节点可以分为m（m&gt;0）个互相不相交的有限集T1、T2、……、Tm，其中每一个集合本身又是一棵树，称之为根的子树（Subtree$。如图左侧即为树的一种；而右侧由于子树存在相交不为空情况则不为树。 g">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pepperrcat.github.io/2022/04/03/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/subpage0.jpg">
+<meta property="article:published_time" content="2022-04-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-05T13:16:45.621Z">
+<meta property="article:author" content="Peper Cat">
+<meta property="article:tag" content="树与二叉树笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pepperrcat.github.io/2022/04/03/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/subpage0.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
+    
+    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1649165122967">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1649165122967">
+    <link rel="stylesheet" href="/css/style.css?v=1649165122967">
+     
+    
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://img0.baidu.com/it/u=2384151289,795334404&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=889&amp;h=500)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Peper Cat" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="Peper Cat"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Peper Cat">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="Peper Cat" alt="Peper Cat">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>2</div>
+        <div><span>标签</span>2</div>
+        <div><span>分类</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/1777201742" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/PepperrCat/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/beginin/" style="font-size: 10px;">beginin</a> <a href="/tags/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">树与二叉树笔记</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 Peper Cat
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+              <img data-src="https://img0.baidu.com/it/u=2384151289,795334404&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" data-sizes="auto" alt="树与二叉树" class="lazyload">
+              <h1>树与二叉树</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年04月03日</a>
+</div>
+
+      
+
+      <h1 id="树与二叉树"><a href="#树与二叉树" class="headerlink" title="树与二叉树"></a>树与二叉树</h1><h2 id="1-树的概念"><a href="#1-树的概念" class="headerlink" title="1.树的概念"></a>1.树的概念</h2><p>​    树（Tree）是n（n≥0）个结点的<strong>有限集</strong>。n=0时被称为空树。在任意一颗空树中：</p>
+<ol>
+<li><p>有且仅有一个特定的节点被称为<strong>根节点</strong>（root）</p>
+</li>
+<li><p>当$n&gt;1$时，其余节点可以分为m（m&gt;0）个<strong>互相不相交的有限集</strong>T1、T2、……、Tm，其中每一个集合本身又是一棵树，<strong>称之为根的子树（Subtree$。</strong>如图左侧即为树的一种；而右侧由于子树存在相交不为空情况则不为树。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs mermaid">graph TB;<br>A(A)--&gt;B(B)<br>A--&gt;C(C)<br>B--&gt;D(D)<br>B--&gt;E(E)<br>B--&gt;F(f)<br>C--&gt;G(G)<br>a(A)--&gt;b(B)<br>a--&gt;c(C)<br>b--&gt;d(D)<br>b--&gt;e(E)<br>b--&gt;f(f)<br>c--&gt;g(G)<br>f--&gt;g<br></code></pre></td></tr></table></figure>
+
+<p>由于定义本身具有==<strong>递归</strong>==的思想，因此树很多时候都能用递归的思想去解决实际问题。</p>
+</li>
+</ol>
+<h3 id="树的表示"><a href="#树的表示" class="headerlink" title="树的表示"></a>树的表示</h3><h4 id="双亲表示法-data-parent"><a href="#双亲表示法-data-parent" class="headerlink" title="双亲表示法   data|parent"></a>双亲表示法   data|parent</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs mermaid">graph TB;<br>A(A)--&gt;B(B)<br>A--&gt;C(C)<br>B--&gt;D(D)<br>B--&gt;E(E)<br>B--&gt;F(f)<br>C--&gt;G(G)<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">编号</th>
+<th align="center">data</th>
+<th align="center">parent</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">A</td>
+<td align="center"><strong>==-1==</strong></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">B</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">C</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">D</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">E</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">F</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">G</td>
+<td align="center">2</td>
+</tr>
+</tbody></table>
+<!--这里要注意根节点的双亲编号习惯性标为-1。-->
+
+<p><strong>双亲表示法在已知子节点向上寻根节点的时间效率较高</strong>，但已知根节点去寻子节点的复杂度较高。</p>
+<h4 id="孩子表示法-data-child1-childe2-…-（较为常用）"><a href="#孩子表示法-data-child1-childe2-…-（较为常用）" class="headerlink" title="孩子表示法  data|child1|childe2|….. （较为常用）"></a><strong>孩子表示法</strong>  data|child1|childe2|….. （较为常用）</h4><p>存在可以存在许多孩子指针域。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-keyword">size_t</span> val;<br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span>* <span class="hljs-title">child1</span>;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span>* <span class="hljs-title">child3</span>;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span>* <span class="hljs-title">child2</span>;</span><br>    ...<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>但是这种表示的缺点是构造树的时候可能有很多指针域并没有用上而造成空间上的浪费。</p>
+<p>优化方法是：在每一个结点的数据域中增加一个变量$degreee$用来记录此节点的孩子指针域的个数</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-keyword">size_t</span> val;<br>    <span class="hljs-keyword">int</span> degree;<br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span>* <span class="hljs-title">child1</span>;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span>* <span class="hljs-title">child3</span>;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span>* <span class="hljs-title">child2</span>;</span><br>    ...<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>当然还可以用哈希表（散列表）的形式储存树。即用顺序表将每个结点储起来，用单链表的形式将每个结点的子结点链接起来，当我们遍历树的时候就可以通过遍历顺序表形式来遍历所有子结点。</p>
+<p><strong>此种表示形式要寻找某个特定结点的子节点的时候非常容易定位。但是与双亲表示法相反，此种表示法在寻找双亲节点时需要遍历整个树。</strong></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="subpage0.jpg" alt="subpage0" class="lazyload"></p>
+<h4 id="孩子兄弟表示法-data-child-rightsibling"><a href="#孩子兄弟表示法-data-child-rightsibling" class="headerlink" title="孩子兄弟表示法 data|child|rightsibling"></a>孩子兄弟表示法 data|child|rightsibling</h4><p>与孩子表示法相似，此种表示法只是多了一个指针域指向此结点右边的兄弟结点，便于寻找兄弟结点。</p>
+<h2 id="2-二叉树的概念"><a href="#2-二叉树的概念" class="headerlink" title="2 .二叉树的概念"></a>2 .二叉树的概念</h2><p>二叉树（Binary Tree）是n(n&gt;0)个结点的有限集合，该集合或者为空集（称为空二叉树）。或者由一个根节点和两课互不相交的、分别称为<strong>根节点的左子树和右子树的二叉树构成</strong>。与树类似，二叉树相当于结点的<strong>孩子域限定为了两个</strong>（$degree=2）。（递归）</p>
+<p>C语言种二叉树的结构体定义如下</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-keyword">size_t</span> val;<br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span>* <span class="hljs-title">left</span>;</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span>* <span class="hljs-title">right</span>;</span><br>    <br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h3 id="二叉树的形式（特殊二叉树）"><a href="#二叉树的形式（特殊二叉树）" class="headerlink" title="二叉树的形式（特殊二叉树）"></a>二叉树的形式（特殊二叉树）</h3><h4 id="斜树"><a href="#斜树" class="headerlink" title="斜树"></a>斜树</h4><p>即所有的结点都沿一个方向延申（所有结点只有一个子结点且斜的方向一致），类似于链表，是线性链接的。</p>
+<p>分为左斜树和右斜树。</p>
+<h4 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h4><p>如果一颗二叉树中，<strong>所有的结点都有左子树和右子树，且所有的叶子结点都在同一层上。</strong>满二叉树一定是所有相同深度二叉树的节点最多，叶子结点最多的二叉树。</p>
+<h4 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h4><p>如果按层的顺序给满二叉树编号，完全二叉树的编号和满二叉树的编号在<strong>叶子结点未编号完之前一摸一样</strong>。由于此种特性。我们可以用数组来表示完全二叉树。</p>
+<p>完全二叉树的数组表示：<br>| a    | b    | c    | d    | e    | f    |<br>| —- | —- | —- | —- | —- | —- |<br>| 0    | 1    | 2    | 3    | 4    | 5    |</p>
+<p>由此表示我们可以得到推论：</p>
+<ul>
+<li>对于位置为$k$的结点，左子结点=2<em>k+1，右子结点=2</em>k+2。</li>
+<li>最后一个非叶结点的位置为(N/2)-1，N为数组长度。</li>
+</ul>
+<p>通过这些推论，我们可以通过数组表示完全二叉树且很轻松的找到一个节点的子结点，当然父母结点也可以通过倒推的方式寻找。</p>
+<h2 id="3-二叉树的遍历及其代码实现"><a href="#3-二叉树的遍历及其代码实现" class="headerlink" title="3. 二叉树的遍历及其代码实现"></a>3. 二叉树的遍历及其代码实现</h2><p>树的遍历即以某种顺序对树中所有结点的数据域进行某种操作（如打印等）。其按顺序划分大致可以分为前序遍历、中序遍历、后序遍历三种情况。下面将分别介绍这三种遍历方式。</p>
+<h3 id="1-中序遍历-LDR"><a href="#1-中序遍历-LDR" class="headerlink" title="1. 中序遍历(LDR)"></a>1. 中序遍历(LDR)</h3><p>中序遍历是从根结点开始对每一个结点按照左结点，本结点，右结点的顺序进行遍历的。如上图树的遍历方式就是：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs mermaid">graph LR;<br>3--&gt;1--&gt;4--&gt;0--&gt;5--&gt;2<br></code></pre></td></tr></table></figure>
+
+<p>其代码实现分为两种方式：</p>
+<ul>
+<li><p>递归法</p>
+<p>构造一个递归的函数，函数先中以递归形式遍历结点的左子树，再访问本结点，最后遍历结点的右子树，C语言实现代码如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c"><span class="hljs-comment">/*</span><br><span class="hljs-comment">struct TreeNode</span><br><span class="hljs-comment">&#123;</span><br><span class="hljs-comment">	int val;</span><br><span class="hljs-comment">	struct TreeNode *left, *right;</span><br><span class="hljs-comment">&#125;</span><br><span class="hljs-comment">*/</span><span class="hljs-comment">//树结点的定义</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">InorderTraversal</span><span class="hljs-params">(TreeNode* root)</span>	<span class="hljs-comment">//中序遍历函数</span></span><br><span class="hljs-function"></span>&#123;<br>    InorderTraversal(root-&gt;left);	<span class="hljs-comment">//遍历左子树</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, root-&gt;val);	<span class="hljs-comment">//打印本节点的值</span><br>    InorderTraversal(root-&gt;right);	<span class="hljs-comment">//遍历右子树</span><br>    <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>递归方式的实现比较简单，利用递归实现的时间复杂度是O(n)，空间复杂度也是O(n)。</p>
+</li>
+<li><p>循环迭代法</p>
+<p>此种方法是用栈这种数据结构实现的，利用的是栈的后入先出原理($LIFO$)，我们直接来看其C语言代码实现：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">IsEmpty</span><span class="hljs-params">(struct TreeNode	**Stack)</span>	<span class="hljs-comment">//判断栈空函数</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> *Stack == <span class="hljs-literal">NULL</span> ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;	<span class="hljs-comment">//只判断栈底元素是否为空即可</span><br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">InorderTraversal</span><span class="hljs-params">(TreeNode* root)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span>	*<span class="hljs-title">Stack</span>[<span class="hljs-title">MAXN</span>];</span>	<span class="hljs-comment">//定义一个栈用来获取结点</span><br>    <span class="hljs-keyword">int</span> top = <span class="hljs-number">0</span>;	<span class="hljs-comment">//栈顶</span><br>    Stack[top] = <span class="hljs-literal">NULL</span>;	<span class="hljs-comment">//置空</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span>* <span class="hljs-title">temp</span> =</span> root;	<span class="hljs-comment">//定义一个临时变量来遍历结点</span><br>    <span class="hljs-keyword">while</span> (temp != <span class="hljs-literal">NULL</span> || !IsEmpty(Stack))	<span class="hljs-comment">//栈不为空且temp不为空则持续循环</span><br>    &#123;<br>        <span class="hljs-keyword">while</span> (temp != <span class="hljs-literal">NULL</span>)	<span class="hljs-comment">//temp不为空指针则循环直到左叶子结点，否则将直接弹栈</span><br>        &#123;<br>            Stack[top++] = temp;	<span class="hljs-comment">//temp入栈</span><br>            temp = temp-&gt;left;	<span class="hljs-comment">//访问左子树</span><br>        &#125;<br>        temp = Stack[--top];  Stack[top] = <span class="hljs-literal">NULL</span>;	<span class="hljs-comment">//弹栈并输出</span><br>       	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, temp-&gt;val);	<br>        temp = temp-&gt;right;		<span class="hljs-comment">//访问右子树，右子树是空若栈不为空则继续弹栈，否则访问右子树</span><br>    &#125;<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这样不断的循环迭代直到所有的结点都入栈弹栈后即循环完毕中序遍历完毕。</p>
+</li>
+</ul>
+<h3 id="2-前序遍历-VLR"><a href="#2-前序遍历-VLR" class="headerlink" title="2. 前序遍历(VLR)"></a>2. 前序遍历(VLR)</h3><ul>
+<li><p>递归法</p>
+<p>由于递归法较为简单，这里直接上代码：（访问结点在前即可）</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">PreorderTraversal</span><span class="hljs-params">(TreeNode* root)</span>	<span class="hljs-comment">//中序遍历函数</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, root-&gt;val);	<span class="hljs-comment">//打印本节点的值</span><br>    PreorderTraversal(root-&gt;left);	<span class="hljs-comment">//遍历左子树</span><br>    PreorderTraversal(root-&gt;right);	<span class="hljs-comment">//遍历右子树</span><br>    <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>循环迭代法</p>
+<p>与中序遍历相同，只需简单的更换输出顺序即可。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">IsEmpty</span><span class="hljs-params">(struct TreeNode	**Stack)</span>	<span class="hljs-comment">//判断栈空函数</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> *Stack == <span class="hljs-literal">NULL</span> ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;	<span class="hljs-comment">//只判断栈底元素是否为空即可</span><br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">PostorderTraversal</span><span class="hljs-params">(struct TreeNode *root)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span>	*<span class="hljs-title">Stack</span>[<span class="hljs-title">MAXN</span>];</span>	<span class="hljs-comment">//定义一个栈用来获取结点</span><br>    <span class="hljs-keyword">int</span> top = <span class="hljs-number">0</span>;	<span class="hljs-comment">//栈顶</span><br>    Stack[top] = <span class="hljs-literal">NULL</span>;	<span class="hljs-comment">//置空</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span> *<span class="hljs-title">temp</span> =</span> root;	<span class="hljs-comment">//定义一个临时变量来遍历结点</span><br>    <span class="hljs-keyword">while</span> (temp != <span class="hljs-literal">NULL</span> || !IsEmpty(Stack))	<span class="hljs-comment">//栈不为空且temp不为空则持续循环</span><br>    &#123;<br>        <span class="hljs-keyword">while</span> (temp != <span class="hljs-literal">NULL</span>)	<span class="hljs-comment">//temp不为空指针则循环直到左叶子结点</span><br>        &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, temp-&gt;val);	<span class="hljs-comment">//先输出，后入栈</span><br>            Stack[top++] = temp;	<span class="hljs-comment">//temp入栈</span><br>            temp = temp-&gt;left;	<span class="hljs-comment">//访问左子树</span><br>        &#125;<br>        temp = Stack[--top];  Stack[top] = <span class="hljs-literal">NULL</span>;	<span class="hljs-comment">//弹栈</span><br>        temp = temp-&gt;right;		<span class="hljs-comment">//访问右子树，右子树是空若栈不为空则继续弹栈，否则访问右子树</span><br>    &#125;<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>把输出（访问）调整到第二个循环的入栈开头即可。</p>
+</li>
+</ul>
+<h3 id="3-后序遍历-LRD"><a href="#3-后序遍历-LRD" class="headerlink" title="3. 后序遍历(LRD)"></a>3. 后序遍历(LRD)</h3><ul>
+<li><p>递归法</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">PostorderTraversal</span><span class="hljs-params">(TreeNode* root)</span>	<span class="hljs-comment">//中序遍历函数</span></span><br><span class="hljs-function"></span>&#123;<br>	PostorderTraversal(root-&gt;left);	<span class="hljs-comment">//遍历左子树</span><br>	PostorderTraversal(root-&gt;right);	<span class="hljs-comment">//遍历右子树</span><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, root-&gt;val);	<span class="hljs-comment">//打印本节点的值</span><br>      <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>循环迭代法</p>
+<p>后续遍历的循环迭代就与前序中序不太相同了，由于是先访问左子节点和右子节点，而左节点不能直接访问到右节点，故代码需要有一定的改变，这里我们多定义一个临时变量PreAccess用来记录已经访问过的结点，防止重复访问。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">IsEmpty</span><span class="hljs-params">(struct TreeNode	**Stack)</span>	<span class="hljs-comment">//判断栈空函数</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> *Stack == <span class="hljs-literal">NULL</span> ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;	<span class="hljs-comment">//只判断栈底元素是否为空即可</span><br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">PreorderTraversal</span><span class="hljs-params">(TreeNode* root)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span>	*<span class="hljs-title">Stack</span>[<span class="hljs-title">MAXN</span>];</span>	<span class="hljs-comment">//定义一个栈用来获取结点</span><br>    <span class="hljs-keyword">int</span> top = <span class="hljs-number">0</span>;	<span class="hljs-comment">//栈顶</span><br>    Stack[top] = <span class="hljs-literal">NULL</span>;	<span class="hljs-comment">//置空</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span>* <span class="hljs-title">temp</span> =</span> root;	<span class="hljs-comment">//定义一个临时变量来遍历结点</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TreeNode</span> *<span class="hljs-title">PreAccess</span> =</span> <span class="hljs-literal">NULL</span>;	<span class="hljs-comment">//定义一个临时变量PreAccess用来记录已经访问过右子树结点的结点</span><br>    <span class="hljs-keyword">while</span> (temp != <span class="hljs-literal">NULL</span> || !IsEmpty(Stack))	<span class="hljs-comment">//栈不为空且temp不为空则持续循环</span><br>    &#123;<br>        <span class="hljs-keyword">while</span> (temp != <span class="hljs-literal">NULL</span>)	<span class="hljs-comment">//temp不为空指针则循环直到左叶子结点，否则将直接弹栈</span><br>        &#123;<br>            Stack[top++] = temp;	<span class="hljs-comment">//temp入栈</span><br>            temp = temp-&gt;left;	<span class="hljs-comment">//访问左子树</span><br>        &#125;<br>        temp = Stack[top - <span class="hljs-number">1</span>];	<span class="hljs-comment">//temp置为栈顶元素，判断右子树是否为空</span><br>        <span class="hljs-keyword">if</span> (temp-&gt;right != <span class="hljs-literal">NULL</span> &amp;&amp; PreAccess != temp-&gt;right)	<span class="hljs-comment">//右子树没访问过且不为空</span><br>            temp = temp-&gt;right;<br>        <span class="hljs-keyword">else</span>	<span class="hljs-comment">//否则弹栈并输出</span><br>        &#123;<br>            temp = Stack[--top];<br>            Stack[top] = <span class="hljs-literal">NULL</span>;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, temp-&gt;val);<br>            PreAccess = temp;	<span class="hljs-comment">//标记节点为已访问</span><br>            temp = <span class="hljs-literal">NULL</span>;	<span class="hljs-comment">//置空，访问下一个栈顶元素</span><br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Peper Cat<br>
+        <strong>本文链接：</strong><a href="https://pepperrcat.github.io/2022/04/03/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/" title="https:&#x2F;&#x2F;pepperrcat.github.io&#x2F;2022&#x2F;04&#x2F;03&#x2F;%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;pepperrcat.github.io&#x2F;2022&#x2F;04&#x2F;03&#x2F;%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91%E7%AC%94%E8%AE%B0/" rel="tag">树与二叉树笔记</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1649165122968"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>
