@@ -12,25 +12,25 @@
     
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="树与二叉树1.树的概念​    树（Tree）是n（n≥0）个结点的有限集。n&#x3D;0时被称为空树。在任意一颗空树中：  有且仅有一个特定的节点被称为根节点（root）  当$n&gt;1$时，其余节点可以分为m（m&gt;0）个互相不相交的有限集T1、T2、……、Tm，其中每一个集合本身又是一棵树，称之为根的子树（Subtree$。如图左侧即为树的一种；而右侧由于子树存在相交不为空情况则不为树。 g">
+    <meta name="description" content="树与二叉树1.树的概念​    树（Tree）是n（n≥0）个结点的有限集。n&#x3D;0时被称为空树。在任意一颗空树中：  有且仅有一个特定的节点被称为根节点（root）  当$n&gt;1$时，其余节点可以分为m（m&gt;0）个互相不相交的有限集T1、T2、……、Tm，其中每一个集合本身又是一棵树，称之为根的子树（Subtree）。如图左侧即为树的一种；而右侧由于子树存在相交不为空情况则不为树。 g">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树与二叉树">
 <meta property="og:url" content="https://pepperrcat.github.io/2022/04/03/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
 <meta property="og:site_name" content="花椒猫猫的小窝">
-<meta property="og:description" content="树与二叉树1.树的概念​    树（Tree）是n（n≥0）个结点的有限集。n&#x3D;0时被称为空树。在任意一颗空树中：  有且仅有一个特定的节点被称为根节点（root）  当$n&gt;1$时，其余节点可以分为m（m&gt;0）个互相不相交的有限集T1、T2、……、Tm，其中每一个集合本身又是一棵树，称之为根的子树（Subtree$。如图左侧即为树的一种；而右侧由于子树存在相交不为空情况则不为树。 g">
+<meta property="og:description" content="树与二叉树1.树的概念​    树（Tree）是n（n≥0）个结点的有限集。n&#x3D;0时被称为空树。在任意一颗空树中：  有且仅有一个特定的节点被称为根节点（root）  当$n&gt;1$时，其余节点可以分为m（m&gt;0）个互相不相交的有限集T1、T2、……、Tm，其中每一个集合本身又是一棵树，称之为根的子树（Subtree）。如图左侧即为树的一种；而右侧由于子树存在相交不为空情况则不为树。 g">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pepperrcat.github.io/2022/04/03/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/image-20220403211034537.png">
 <meta property="article:published_time" content="2022-04-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-04-05T15:15:34.877Z">
+<meta property="article:modified_time" content="2022-04-06T05:05:20.639Z">
 <meta property="article:author" content="Peper Cat">
 <meta property="article:tag" content="树">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pepperrcat.github.io/2022/04/03/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/image-20220403211034537.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
     
-    <link rel="stylesheet" href="../../../../lib/mdui_043tiny/css/mdui.css?v=1649171786550">
-    <link rel="stylesheet" href="../../../../lib/iconfont/iconfont.css?v=1649171786550">
-    <link rel="stylesheet" href="../../../../css/style.css?v=1649171786550">
+    <link rel="stylesheet" href="../../../../lib/mdui_043tiny/css/mdui.css?v=1649221940397">
+    <link rel="stylesheet" href="../../../../lib/iconfont/iconfont.css?v=1649221940397">
+    <link rel="stylesheet" href="../../../../css/style.css?v=1649221940397">
      
     
 <meta name="generator" content="Hexo 6.0.0"></head>
@@ -38,7 +38,7 @@
 <body class="mdui-drawer-body-left">
     
     <div id="nexmoe-background">
-        <div class="nexmoe-bg" style="background-image: url(https://img0.baidu.com/it/u=2384151289,795334404&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=889&amp;h=500)"></div>
+        <div class="nexmoe-bg" style="background-image: url(/images/background.png)"></div>
         <div class="mdui-appbar mdui-shadow-0">
             <div class="mdui-toolbar">
                 <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
@@ -56,7 +56,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>3</div>
+        <div><span>文章</span>4</div>
         <div><span>标签</span>2</div>
         <div><span>分类</span>0</div>
     </div>
@@ -89,7 +89,7 @@
     <div class="nexmoe-widget-wrap">
     <div class="nexmoe-widget nexmoe-search">
          
-            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+            <form id="search_form" action_e="https://www.baidu.com/" onsubmit="return search();">
                 <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
             </form>
          
@@ -98,7 +98,7 @@
     
     <div class="nexmoe-widget-wrap">
     <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="../../../../tencent:/AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=804739763&website=www.oicqzone.com" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+        <a class="mdui-ripple" href="../../../../tencent:/AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=804739763&website=www.oicqzone.com/" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
             <i class="nexmoefont icon-QQ"></i>
         </a><a class="mdui-ripple" href="../../../../https:/space.bilibili.com/1777201742" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
             <i class="nexmoefont icon-bilibili"></i>
@@ -136,7 +136,7 @@
   <article>
       
           <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
-              <img data-src="https://img0.baidu.com/it/u=2384151289,795334404&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" data-sizes="auto" alt="树与二叉树" class="lazyload">
+              <img data-src="/images/background.png" data-sizes="auto" alt="树与二叉树" class="lazyload">
               <h1>树与二叉树</h1>
           </div>
       
@@ -151,7 +151,7 @@
 <ol>
 <li><p>有且仅有一个特定的节点被称为<strong>根节点</strong>（root）</p>
 </li>
-<li><p>当$n&gt;1$时，其余节点可以分为m（m&gt;0）个<strong>互相不相交的有限集</strong>T1、T2、……、Tm，其中每一个集合本身又是一棵树，<strong>称之为根的子树（Subtree$。</strong>如图左侧即为树的一种；而右侧由于子树存在相交不为空情况则不为树。</p>
+<li><p>当$n&gt;1$时，其余节点可以分为m（m&gt;0）个<strong>互相不相交的有限集</strong>T1、T2、……、Tm，其中每一个集合本身又是一棵树，<strong>称之为根的子树（Subtree）。</strong>如图左侧即为树的一种；而右侧由于子树存在相交不为空情况则不为树。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs mermaid">graph TB;<br>A(A)--&gt;B(B)<br>A--&gt;C(C)<br>B--&gt;D(D)<br>B--&gt;E(E)<br>B--&gt;F(f)<br>C--&gt;G(G)<br>a(A)--&gt;b(B)<br>a--&gt;c(C)<br>b--&gt;d(D)<br>b--&gt;e(E)<br>b--&gt;f(f)<br>c--&gt;g(G)<br>f--&gt;g<br></code></pre></td></tr></table></figure>
 
 <p>由于定义本身具有==<strong>递归</strong>==的思想，因此树很多时候都能用递归的思想去解决实际问题。</p>
@@ -303,6 +303,18 @@
                   <div class="nexmoe-tool"> 
                     
                       
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.</span> <span class="toc-text">树与二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">1.树的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%91%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.1.1.</span> <span class="toc-text">树的表示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E4%BA%B2%E8%A1%A8%E7%A4%BA%E6%B3%95-data-parent"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">双亲表示法   data|parent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%A9%E5%AD%90%E8%A1%A8%E7%A4%BA%E6%B3%95-data-child1-childe2-%E2%80%A6-%EF%BC%88%E8%BE%83%E4%B8%BA%E5%B8%B8%E7%94%A8%EF%BC%89"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">孩子表示法  data|child1|childe2|….. （较为常用）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%A9%E5%AD%90%E5%85%84%E5%BC%9F%E8%A1%A8%E7%A4%BA%E6%B3%95-data-child-rightsibling"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">孩子兄弟表示法 data|child|rightsibling</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.2.</span> <span class="toc-text">2 .二叉树的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%BD%A2%E5%BC%8F%EF%BC%88%E7%89%B9%E6%AE%8A%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%89"><span class="toc-number">1.2.1.</span> <span class="toc-text">二叉树的形式（特殊二叉树）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%9C%E6%A0%91"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">斜树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">满二叉树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">完全二叉树</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E5%8F%8A%E5%85%B6%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.</span> <span class="toc-text">3. 二叉树的遍历及其代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86-LDR"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. 中序遍历(LDR)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86-VLR"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. 前序遍历(VLR)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86-LRD"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. 后序遍历(LRD)</span></a></li></ol></li></ol></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
                     
                       <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
                   </div>
@@ -329,7 +341,7 @@
 
  
 
-<script async src="../../../../js/app.js?v=1649171786553"></script>
+<script async src="../../../../js/app.js?v=1649221940408"></script>
 
 
 
