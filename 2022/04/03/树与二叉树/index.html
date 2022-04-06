@@ -12,25 +12,25 @@
     
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="树与二叉树1.树的概念​    树（Tree）是n（n≥0）个结点的有限集。n&#x3D;0时被称为空树。在任意一颗空树中：  有且仅有一个特定的节点被称为根节点（root）  当$n&gt;1$时，其余节点可以分为m（m&gt;0）个互相不相交的有限集T1、T2、……、Tm，其中每一个集合本身又是一棵树，称之为根的子树（Subtree）。如图左侧即为树的一种；而右侧由于子树存在相交不为空情况则不为树。 g">
+    <meta name="description" content="本文是有关树的算法和结构的讨论，仅为自学的小小笔记，~~看看就好~~。  树与二叉树1.树的概念​    树（Tree）是n（n≥0）个结点的有限集。n&#x3D;0时被称为空树。在任意一颗空树中：  有且仅有一个特定的节点被称为根节点（root）  当$n&gt;1$时，其余节点可以分为m（m&gt;0）个互相不相交的有限集T1、T2、……、Tm，其中每一个集合本身又是一棵树，称之为根的子树（Subtre">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树与二叉树">
 <meta property="og:url" content="https://pepperrcat.github.io/2022/04/03/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
 <meta property="og:site_name" content="花椒猫猫的小窝">
-<meta property="og:description" content="树与二叉树1.树的概念​    树（Tree）是n（n≥0）个结点的有限集。n&#x3D;0时被称为空树。在任意一颗空树中：  有且仅有一个特定的节点被称为根节点（root）  当$n&gt;1$时，其余节点可以分为m（m&gt;0）个互相不相交的有限集T1、T2、……、Tm，其中每一个集合本身又是一棵树，称之为根的子树（Subtree）。如图左侧即为树的一种；而右侧由于子树存在相交不为空情况则不为树。 g">
+<meta property="og:description" content="本文是有关树的算法和结构的讨论，仅为自学的小小笔记，~~看看就好~~。  树与二叉树1.树的概念​    树（Tree）是n（n≥0）个结点的有限集。n&#x3D;0时被称为空树。在任意一颗空树中：  有且仅有一个特定的节点被称为根节点（root）  当$n&gt;1$时，其余节点可以分为m（m&gt;0）个互相不相交的有限集T1、T2、……、Tm，其中每一个集合本身又是一棵树，称之为根的子树（Subtre">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pepperrcat.github.io/2022/04/03/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/image-20220403211034537.png">
 <meta property="article:published_time" content="2022-04-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-04-06T05:05:20.639Z">
+<meta property="article:modified_time" content="2022-04-06T05:26:44.174Z">
 <meta property="article:author" content="Peper Cat">
 <meta property="article:tag" content="树">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pepperrcat.github.io/2022/04/03/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/image-20220403211034537.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
     
-    <link rel="stylesheet" href="../../../../lib/mdui_043tiny/css/mdui.css?v=1649221940397">
-    <link rel="stylesheet" href="../../../../lib/iconfont/iconfont.css?v=1649221940397">
-    <link rel="stylesheet" href="../../../../css/style.css?v=1649221940397">
+    <link rel="stylesheet" href="../../../../lib/mdui_043tiny/css/mdui.css?v=1649225868409">
+    <link rel="stylesheet" href="../../../../lib/iconfont/iconfont.css?v=1649225868410">
+    <link rel="stylesheet" href="../../../../css/style.css?v=1649225868410">
      
     
 <meta name="generator" content="Hexo 6.0.0"></head>
@@ -58,7 +58,7 @@
     <div class="nexmoe-count">
         <div><span>文章</span>4</div>
         <div><span>标签</span>2</div>
-        <div><span>分类</span>0</div>
+        <div><span>分类</span>3</div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
@@ -66,6 +66,13 @@
             <i class="mdui-list-item-icon nexmoefont icon-home"></i>
             <div class="mdui-list-item-content">
                 回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="../../../../archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
             </div>
         </a>
         
@@ -109,12 +116,50 @@
 </div>
     
     
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/NEW/">NEW</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/数据结构/">数据结构</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/算法/">算法</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
 
     
     
   <div class="nexmoe-widget-wrap">
     <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="../../../../tags/beginin/" style="font-size: 10px;">beginin</a> <a href="../../../../tags/%E6%A0%91/" style="font-size: 20px;">树</a>
+      <a href="../../../../tags/begining/" style="font-size: 10px;">begining</a> <a href="../../../../tags/%E6%A0%91/" style="font-size: 20px;">树</a>
     </div>
     
   </div>
@@ -135,8 +180,8 @@
 
   <article>
       
-          <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
-              <img data-src="/images/background.png" data-sizes="auto" alt="树与二叉树" class="lazyload">
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img data-src="https://i.loli.net/2019/07/21/5d33d5dc1531213134.png" data-sizes="auto" alt="树与二叉树" class="lazyload">
               <h1>树与二叉树</h1>
           </div>
       
@@ -147,7 +192,9 @@
 
       
 
-      <h1 id="树与二叉树"><a href="#树与二叉树" class="headerlink" title="树与二叉树"></a>树与二叉树</h1><h2 id="1-树的概念"><a href="#1-树的概念" class="headerlink" title="1.树的概念"></a>1.树的概念</h2><p>​    树（Tree）是n（n≥0）个结点的<strong>有限集</strong>。n=0时被称为空树。在任意一颗空树中：</p>
+      <span id="more"></span>本文是有关树的算法和结构的讨论，仅为自学的小小笔记，~~看看就好~~。
+
+<h1 id="树与二叉树"><a href="#树与二叉树" class="headerlink" title="树与二叉树"></a>树与二叉树</h1><h2 id="1-树的概念"><a href="#1-树的概念" class="headerlink" title="1.树的概念"></a>1.树的概念</h2><p>​    树（Tree）是n（n≥0）个结点的<strong>有限集</strong>。n=0时被称为空树。在任意一颗空树中：</p>
 <ol>
 <li><p>有且仅有一个特定的节点被称为<strong>根节点</strong>（root）</p>
 </li>
@@ -287,6 +334,8 @@
   
   <div class="nexmoe-post-meta nexmoe-rainbow">
     
+        <a class="nexmoefont icon-appstore-fill -link" href="../../../../categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+    
     
         <a class="nexmoefont icon-tag-fill -none-link" href="../../../../tags/%E6%A0%91/" rel="tag">树</a>
     
@@ -341,7 +390,7 @@
 
  
 
-<script async src="../../../../js/app.js?v=1649221940408"></script>
+<script async src="../../../../js/app.js?v=1649225868421"></script>
 
 
 
