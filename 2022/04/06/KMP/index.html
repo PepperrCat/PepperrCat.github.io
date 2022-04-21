@@ -12,25 +12,25 @@
     
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="本文是KMP算法的简单阐述与C语言实现，仅供自学使用，蒟蒻瑟瑟发抖。  KMP简述KMP算法，即Knuth-Morris-Pratt算法，是实现字符串匹配问题的一种较为高效的算法，相比于传统的朴素模式字符串查找算法，即Brute-Force算法，它的优势在于能够显著的降低时间复杂度。即，将O(m*n)复杂度降为O(m+n)。在介绍KMP算法前，我们先简单介绍一下BF算法的原理。 BF算法（朴素字符">
+    <meta name="description" content="本文是KMP算法的简单阐述与C语言实现，仅供自学使用，蒟蒻瑟瑟发抖。  [TOC] KMP简述KMP算法，即Knuth-Morris-Pratt算法，是实现字符串匹配问题的一种较为高效的算法，相比于传统的朴素模式字符串查找算法，即Brute-Force算法，它的优势在于能够显著的降低时间复杂度。即，将O(m*n)复杂度降为O(m+n)。在介绍KMP算法前，我们先简单介绍一下BF算法的原理。 BF算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KMP">
 <meta property="og:url" content="https://pepperrcat.github.io/2022/04/06/KMP/index.html">
 <meta property="og:site_name" content="花椒猫猫的小窝">
-<meta property="og:description" content="本文是KMP算法的简单阐述与C语言实现，仅供自学使用，蒟蒻瑟瑟发抖。  KMP简述KMP算法，即Knuth-Morris-Pratt算法，是实现字符串匹配问题的一种较为高效的算法，相比于传统的朴素模式字符串查找算法，即Brute-Force算法，它的优势在于能够显著的降低时间复杂度。即，将O(m*n)复杂度降为O(m+n)。在介绍KMP算法前，我们先简单介绍一下BF算法的原理。 BF算法（朴素字符">
+<meta property="og:description" content="本文是KMP算法的简单阐述与C语言实现，仅供自学使用，蒟蒻瑟瑟发抖。  [TOC] KMP简述KMP算法，即Knuth-Morris-Pratt算法，是实现字符串匹配问题的一种较为高效的算法，相比于传统的朴素模式字符串查找算法，即Brute-Force算法，它的优势在于能够显著的降低时间复杂度。即，将O(m*n)复杂度降为O(m+n)。在介绍KMP算法前，我们先简单介绍一下BF算法的原理。 BF算">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pepperrcat.github.io/2022/04/06/KMP/%E5%9B%BE%E7%89%871.png">
 <meta property="article:published_time" content="2022-04-06T04:55:47.000Z">
-<meta property="article:modified_time" content="2022-04-15T08:41:08.261Z">
+<meta property="article:modified_time" content="2022-04-21T16:14:58.148Z">
 <meta property="article:author" content="Peper Cat">
 <meta property="article:tag" content="字符串匹配">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pepperrcat.github.io/2022/04/06/KMP/%E5%9B%BE%E7%89%871.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
     
-    <link rel="stylesheet" href="../../../../lib/mdui_043tiny/css/mdui.css?v=1650012081709">
-    <link rel="stylesheet" href="../../../../lib/iconfont/iconfont.css?v=1650012081709">
-    <link rel="stylesheet" href="../../../../css/style.css?v=1650012081709">
+    <link rel="stylesheet" href="../../../../lib/mdui_043tiny/css/mdui.css?v=1650557756760">
+    <link rel="stylesheet" href="../../../../lib/iconfont/iconfont.css?v=1650557756761">
+    <link rel="stylesheet" href="../../../../css/style.css?v=1650557756761">
      
     
 <meta name="generator" content="Hexo 6.0.0"></head>
@@ -198,6 +198,7 @@
 
       <span id="more"></span>本文是KMP算法的简单阐述与C语言实现，<s>仅供自学使用</s>，蒟蒻瑟瑟发抖。
 
+<p>[TOC]</p>
 <h1 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h1><h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>KMP算法，即Knuth-Morris-Pratt算法，是<u>实现字符串匹配问题</u>的一种较为高效的算法，相比于传统的朴素模式字符串查找算法，即Brute-Force算法，它的优势在于能够<strong>显著的降低时间复杂度</strong>。即，将O(m*n)复杂度降为O(m+n)。在介绍KMP算法前，我们先简单介绍一下BF算法的原理。</p>
 <h2 id="BF算法（朴素字符串查找）"><a href="#BF算法（朴素字符串查找）" class="headerlink" title="BF算法（朴素字符串查找）"></a>BF算法（朴素字符串查找）</h2><p>串的简单模式匹配算法Brute-Force（布鲁特-福斯，又称朴素的模式匹配算法）算法：将主串S的第一个字符和模式串T的第1个字符比较     若相等，继续逐个比较后续字符；若不等，从主串S的下一字符起，重新与T第一个字符比较。直到主串S的一个连续子串字符序列与模式T相等。返回值为S中与T匹配的子序列第一个字符的序号，即匹配成功。否则，匹配失败，返回值 –1。其代码通过双指针原理实现也相对比较简单。</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">indexBFmatch</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* Str, <span class="hljs-keyword">char</span>* SubStr)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> i, j;<br>    <span class="hljs-keyword">int</span> lens = <span class="hljs-built_in">strlen</span>(Str), sublens = <span class="hljs-built_in">strlen</span>(SubStr);<br>    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; lens - sublens + <span class="hljs-number">1</span>; i++)	<span class="hljs-comment">//for (i = 0; *(Str + i) != &#x27;\0&#x27;; i++)</span><br>    &#123;<br>        <span class="hljs-keyword">if</span> (*(Str + i) == *SubStr)<br>            <span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; sublens &amp;&amp; *(SubStr + j) == *(Str + i + j); j++)<br>        <span class="hljs-keyword">if</span> (j == sublens) <span class="hljs-keyword">return</span> i;<br>        <br>        <span class="hljs-comment">/*for (j = 0; *(SubStr + j) != &#x27;\0&#x27; &amp;&amp; *(SubStr + j) == *(Str + i + j); j++);</span><br><span class="hljs-comment">        	if (*(SubStr + j) == &#x27;\0&#x27;) return i;*/</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;       <br>&#125;<br><span class="hljs-comment">//没有处理大小写无关的问题，如要处理，只需加一个大小写无关比较函数即可。</span><br></code></pre></td></tr></table></figure>
@@ -287,10 +288,10 @@
 
  
 
-<script async src="../../../../js/app.js?v=1650012081716"></script>
+<script async src="../../../../js/app.js?v=1650557756768"></script>
 
 
-	<script async src="../../../../js/search.js?v=1650012081716"></script>
+	<script async src="../../../../js/search.js?v=1650557756768"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>

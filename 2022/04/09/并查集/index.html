@@ -12,27 +12,27 @@
     
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="本文基于树的基础介绍了一种集合内元素不相交的集合的构造方法，以及集合之间合并与集合内元素查询的方法，并且基于这种方法提出路径压缩的优化方式，仅供自学使用，转载随意。  并查集&amp;带权并查集并查集简介现给出n个元素，分属不同的集合，我们要进行以下两种操作：  给出两个元素的关系，满足这一关系的两个元素所属集合合并。（即：x，y是亲戚，则x的亲戚也是y的亲戚，于是x，y所处两个集合可以合并成为一">
+    <meta name="description" content="本文基于树的基础介绍了一种集合内元素不相交的集合的构造方法，以及集合之间合并与集合内元素查询的方法，并且基于这种方法提出路径压缩的优化方式，仅供自学使用，转载随意。  [TOC] 并查集&amp;带权并查集并查集简介现给出n个元素，分属不同的集合，我们要进行以下两种操作：  给出两个元素的关系，满足这一关系的两个元素所属集合合并。（即：x，y是亲戚，则x的亲戚也是y的亲戚，于是x，y所处两个集合可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="并查集">
 <meta property="og:url" content="https://pepperrcat.github.io/2022/04/09/%E5%B9%B6%E6%9F%A5%E9%9B%86/index.html">
 <meta property="og:site_name" content="花椒猫猫的小窝">
-<meta property="og:description" content="本文基于树的基础介绍了一种集合内元素不相交的集合的构造方法，以及集合之间合并与集合内元素查询的方法，并且基于这种方法提出路径压缩的优化方式，仅供自学使用，转载随意。  并查集&amp;带权并查集并查集简介现给出n个元素，分属不同的集合，我们要进行以下两种操作：  给出两个元素的关系，满足这一关系的两个元素所属集合合并。（即：x，y是亲戚，则x的亲戚也是y的亲戚，于是x，y所处两个集合可以合并成为一">
+<meta property="og:description" content="本文基于树的基础介绍了一种集合内元素不相交的集合的构造方法，以及集合之间合并与集合内元素查询的方法，并且基于这种方法提出路径压缩的优化方式，仅供自学使用，转载随意。  [TOC] 并查集&amp;带权并查集并查集简介现给出n个元素，分属不同的集合，我们要进行以下两种操作：  给出两个元素的关系，满足这一关系的两个元素所属集合合并。（即：x，y是亲戚，则x的亲戚也是y的亲戚，于是x，y所处两个集合可">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pepperrcat.github.io/2022/04/09/%E5%B9%B6%E6%9F%A5%E9%9B%86/1.png">
 <meta property="og:image" content="https://pepperrcat.github.io/2022/04/09/%E5%B9%B6%E6%9F%A5%E9%9B%86/2.png">
 <meta property="og:image" content="https://pepperrcat.github.io/2022/04/09/%E5%B9%B6%E6%9F%A5%E9%9B%86/3.png">
 <meta property="article:published_time" content="2022-04-09T07:16:00.000Z">
-<meta property="article:modified_time" content="2022-04-10T17:06:55.017Z">
+<meta property="article:modified_time" content="2022-04-21T16:14:38.508Z">
 <meta property="article:author" content="Peper Cat">
 <meta property="article:tag" content="树">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pepperrcat.github.io/2022/04/09/%E5%B9%B6%E6%9F%A5%E9%9B%86/1.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
     
-    <link rel="stylesheet" href="../../../../lib/mdui_043tiny/css/mdui.css?v=1650012081700">
-    <link rel="stylesheet" href="../../../../lib/iconfont/iconfont.css?v=1650012081700">
-    <link rel="stylesheet" href="../../../../css/style.css?v=1650012081700">
+    <link rel="stylesheet" href="../../../../lib/mdui_043tiny/css/mdui.css?v=1650557756746">
+    <link rel="stylesheet" href="../../../../lib/iconfont/iconfont.css?v=1650557756746">
+    <link rel="stylesheet" href="../../../../css/style.css?v=1650557756746">
      
     
 <meta name="generator" content="Hexo 6.0.0"></head>
@@ -200,6 +200,7 @@
 
       <span id="more"></span>本文基于树的基础介绍了一种集合内元素不相交的集合的构造方法，以及集合之间合并与集合内元素查询的方法，并且基于这种方法提出路径压缩的优化方式，仅供自学使用，<s>转载随意</s>。
 
+<p>[TOC]</p>
 <h1 id="并查集-amp-带权并查集"><a href="#并查集-amp-带权并查集" class="headerlink" title="并查集&amp;带权并查集"></a>并查集&amp;带权并查集</h1><h2 id="并查集简介"><a href="#并查集简介" class="headerlink" title="并查集简介"></a>并查集简介</h2><p>现给出n个元素，分属不同的集合，我们要进行以下两种操作：</p>
 <ol>
 <li>给出两个元素的关系，满足这一关系的两个元素所属集合合并。（即：x，y是亲戚，则x的亲戚也是y的亲戚，于是x，y所处两个集合可以合并成为一个新的亲戚集合。即【x所在集合】与【y所在集合】合并）</li>
@@ -332,10 +333,10 @@
 
  
 
-<script async src="../../../../js/app.js?v=1650012081708"></script>
+<script async src="../../../../js/app.js?v=1650557756759"></script>
 
 
-	<script async src="../../../../js/search.js?v=1650012081708"></script>
+	<script async src="../../../../js/search.js?v=1650557756759"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
