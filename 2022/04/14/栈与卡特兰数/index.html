@@ -19,16 +19,38 @@
 <meta property="og:site_name" content="花椒猫猫的小窝">
 <meta property="og:description" content="摘要：本文是基于栈的后入先出性质研究的出栈顺序数目的问题，具有一定的拓展性，因此，笔者于此小研究一下，希望对以后的学习有所帮助。  [TOC] 栈与卡特兰数引入众所周知，栈是一种较为重要的数据结构，它具有先入后出的FILO性质（即First In Last Out）。正是由于这种特殊的性质，当我们给定一个入栈顺序的时候，他的出栈顺序是什么样的呢，又应该有多少种呢，是否所有n个元素的任意排列都能符合">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pepperrcat.github.io/2022/04/14/%E6%A0%88%E4%B8%8E%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/1.png">
+<meta property="og:image" content="https://pepperrcat.github.io/2022/04/14/%E6%A0%88%E4%B8%8E%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/v2-bcb4ad4ccf5f896a06882d6b12177366_720w.jpg">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=n">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=P_1">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=P_%7Bn%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=P_1,P_2,%5Cldots,P_%7Bn%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=P_k">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=2+%5Cle+k+%5Cle+n-1">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=P_%7B1%7D,+P_%7B2%7D,+%5Cldots,+P_%7Bk%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=k">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=P_%7Bk%7D,+P_%7Bk+1%7D,+%5Cldots,+P_%7Bn%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=n-k+1">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=f(n)">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=k">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=n-k+1">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=k">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=f(n)=%5Cleft%5C%7B%5Cbegin%7Barray%7D%7Bll%7D+%5Csum_%7Bk=2%7D%5E%7Bn-1%7D+f(k)f(n-k+1)+&+n+%5Cgeq+4,+n+%5Cin+%5Cmathbf%7BN%7D_%7B+%7D+%5C%5C+1+&+n=2,3+%5Cend%7Barray%7D+%5Cright.+%5C%5C">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=n">
+<meta property="og:image" content="https://pepperrcat.github.io/2022/04/14/%E6%A0%88%E4%B8%8E%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/format,f_auto.png">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=C_%7Bm+n%7D%5E%7Bm%7D-C_%7Bm+n%7D%5E%7Bm+1%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+C_%7Bn%7D+&=C_%7Bm+n%7D%5E%7Bm%7D-C_%7Bm+n%7D%5E%7Bm+1%7D+%5C%5C+&=%5Cfrac%7B(m+n)+!%7D%7Bm+!+*+n+!%7D-%5Cfrac%7B(m+n)+!%7D%7B(m+1)+!+*(n-1)+!%7D+%5C%5C+&=%5Cfrac%7B(m+n)+!%7D%7Bm+!+*+n+!%7D-%5Cfrac%7B(m+n)+!+*+%5Cfrac%7B1%7D%7Bm+1%7D+*+n%7D%7Bm+!+*+n+!%7D+%5C%5C+&=%5Cfrac%7B(m+n)+!%7D+%7Bm+!+*+n+!%7D+*%5Cleft(1-%5Cfrac%7B1%7D%7Bm+1%7D+*+n%5Cright)+%5C%5C+&=%5Cfrac%7B(m+n)+!%7D+%7Bm+!+*+n+!%7D+*+%5Cfrac%7Bm+1-n%7D%7Bm+1%7D+%5C%5C+A_n+&=+C_%7Bn%7D+*+m+!+*+n+!+%5C%5C+&=+(m+n)!+*+%5Cfrac+%7Bm+1-n%7D%7Bm+1%7D+%5Cend%7Baligned%7D+%5C%5C">
 <meta property="article:published_time" content="2022-04-14T09:23:28.000Z">
-<meta property="article:modified_time" content="2022-04-21T16:13:50.426Z">
+<meta property="article:modified_time" content="2022-04-22T08:52:57.569Z">
 <meta property="article:author" content="Peper Cat">
 <meta property="article:tag" content="栈">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pepperrcat.github.io/2022/04/14/%E6%A0%88%E4%B8%8E%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/1.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
     
-    <link rel="stylesheet" href="../../../../lib/mdui_043tiny/css/mdui.css?v=1650558098711">
-    <link rel="stylesheet" href="../../../../lib/iconfont/iconfont.css?v=1650558098711">
-    <link rel="stylesheet" href="../../../../css/style.css?v=1650558098711">
+    <link rel="stylesheet" href="../../../../lib/mdui_043tiny/css/mdui.css?v=1650617606565">
+    <link rel="stylesheet" href="../../../../lib/iconfont/iconfont.css?v=1650617606565">
+    <link rel="stylesheet" href="../../../../css/style.css?v=1650617606565">
      
     
 <meta name="generator" content="Hexo 6.0.0"></head>
@@ -221,10 +243,62 @@
 <figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-keyword">int</span> ans, n = <span class="hljs-number">0</span>;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">IsEmpty</span><span class="hljs-params">(<span class="hljs-keyword">int</span> top)</span>	<span class="hljs-comment">//栈空判断</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> top == <span class="hljs-number">-1</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> <span class="hljs-built_in">stack</span>[], <span class="hljs-keyword">int</span> top, <span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> outstack[], <span class="hljs-keyword">int</span> num)</span>	<span class="hljs-comment">//DFS过程</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (x == n + <span class="hljs-number">1</span>)	<span class="hljs-comment">//递归边界</span><br>    &#123;<br>        ans++;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; num; i++)<br>        &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, outstack[i]);<br>        &#125;	<span class="hljs-comment">//输出已经出栈元素</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = top; i &gt;= <span class="hljs-number">0</span>; i--)<br>        &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, <span class="hljs-built_in">stack</span>[i]);<br>        &#125;	<span class="hljs-comment">//输出栈中后出栈元素</span><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (!IsEmpty(top))	<span class="hljs-comment">//栈不为空，两种情况。</span><br>    &#123;<br>        <span class="hljs-keyword">int</span> topnum = <span class="hljs-built_in">stack</span>[top];<br>        <span class="hljs-built_in">stack</span>[top--] = <span class="hljs-number">0</span>;<br>        outstack[num++] = topnum;<br>        dfs(<span class="hljs-built_in">stack</span>, top, x, outstack, num);	<span class="hljs-comment">//情况一：弹栈并递归</span><br>        outstack[num--] = <span class="hljs-number">0</span>;	<span class="hljs-comment">//注意回溯，防止stack改变</span><br>        <span class="hljs-built_in">stack</span>[++top] = topnum;	<span class="hljs-comment">//回溯</span><br>        <span class="hljs-built_in">stack</span>[++top] = x;<br>        dfs(<span class="hljs-built_in">stack</span>, top, x + <span class="hljs-number">1</span>, outstack, num);	<span class="hljs-comment">//情况二：入栈并递归</span><br>    &#125;<br>    <span class="hljs-keyword">else</span>	<span class="hljs-comment">//栈为空，入栈并递归</span><br>    &#123;<br>        <span class="hljs-built_in">stack</span>[++top] = x;<br>        dfs(<span class="hljs-built_in">stack</span>, top, x + <span class="hljs-number">1</span>, outstack, num);<br>    &#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> <span class="hljs-built_in">stack</span>[<span class="hljs-number">100</span>] = &#123;<span class="hljs-number">0</span>&#125;, top = <span class="hljs-number">-1</span>, outstack[<span class="hljs-number">100</span>] = &#123;<span class="hljs-number">0</span>&#125;, num = <span class="hljs-number">0</span>;<br>    <span class="hljs-comment">//outstack用来记录出栈的数，num是outstack中的数。</span><br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>    dfs(<span class="hljs-built_in">stack</span>, top, <span class="hljs-number">1</span>, outstack, num);<br>    <span class="hljs-comment">//参数引入stack，top，oustack，num这些局部变量而不是全局变量，是为了每次递归结束后不改变原始stack，outstack中的值。</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, ans);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>以上代码运行结果如下：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/*n = 1*/</span><br><span class="hljs-number">1</span><br><span class="hljs-regexp">/*n = 2*/</span><br><span class="hljs-number">2</span><br><span class="hljs-regexp">/*n = 3*/</span><br><span class="hljs-number">5</span><br><span class="hljs-regexp">/*n = 4*/</span><br><span class="hljs-number">14</span><br><span class="hljs-regexp">/*n = 5*/</span><br><span class="hljs-number">42</span><br><span class="hljs-regexp">/*n = 6*/</span><br><span class="hljs-number">132</span><br><span class="hljs-regexp">/*n = 7*/</span><br><span class="hljs-number">429</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/*n = 1*/</span><br><span class="hljs-number">1</span><br><span class="hljs-regexp">/*n = 2*/</span><br><span class="hljs-number">2</span><br><span class="hljs-regexp">/*n = 3*/</span><br><span class="hljs-number">5</span><br><span class="hljs-regexp">/*n = 4*/</span><br><span class="hljs-number">14</span><br><span class="hljs-regexp">/*n = 5*/</span><br><span class="hljs-number">42</span><br><span class="hljs-regexp">/*n = 6*/</span><br><span class="hljs-number">132</span><br><span class="hljs-regexp">/*n = 7*/</span><br><span class="hljs-number">429</span><br>...<br></code></pre></td></tr></table></figure>
 
-<p>观察其规律从第一项开始，构成数列1，2，5，14，42，132，429…… 显然，这并不是全排列数，而且数目必然比全排列要少许多，直接分析数字之间的规律并不能找到明显的通项或者递推公式。因此还要把问从模拟上升到本质问题解决上。</p>
-<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2>
+<p>观察其规律从第一项开始，构成数列1，2，5，14，42，132，429…… 显然，这并不是全排列数，而且数目必然比全排列要少许多，直接分析数字之间的规律并不能找到明显的通项或者递推公式。因此还要把问题从模拟上升到本质问题解决上。</p>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>我们设出栈顺序数目构成的数列通项为 <b><i>f(n)</i></b> 。对于该问题，n = 1，2，3都很容易列举出来，故我们从n = 4开始分析。假设入栈顺序为a、b、c、d，最先入栈的1出栈可能存在四个位置：1、2、3、4，假设a出栈位于第一个位置则a入栈后立即出栈，后面b、c、d构成的出栈顺序种类数为 <b><i>f(3)</i></b> ，而a之前的出栈种类数应为 <b><i>f(0)</i></b>（定义f(0)= 1），由于a前后出栈是独立的，故使用乘法原理可以得到对应出栈种类数为 <b><i>f(3) * f(0)</i></b>。同理a在2、3、4位置同样可以得到对应出栈种类数为<b><i>f(2) * f(1)</i></b>、<b><i>f(1) * f(2)</i></b>、<b><i>f(0) * f(3)</i></b>，于是 <b><i>f(4) = f(0) * f(3) + f(1) * f(2) + f(2) * f(1) + f(3) * f(0)</i></b>，那么对于n个入栈元素，对应的出栈种类数可以同理得到：<br>$$<br>f(n) = \sum_{i=0}^{n-1}f(i)f(n-i-1)\tag{1}<br>$$<br>这就是对应 <b><i>f(n)</i></b>的一个递推公式了，而这个递推公式得出得数列被称之为卡特兰数，我们用 $Cn$ 表示。根据数学上的等价证明我们可以得到卡特兰数的通项和一些递推公式如下（时间原因这里就不证明了。<s>其实是实力问题</s>&gt;）：<br>$$<br>递推公式：C_n = \frac{4n-2}{n+1}C_{n-1}\tag{2}<br>$$</p>
+<p>$$<br>通项公式：C_n = \frac{1}{n+1}C^n_{2n} = C^n_{2n} - C^{n-1}_{2n}\tag{3}<br>$$</p>
+<p>通过递推or递归的代码实现如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> C[n];<br>C[<span class="hljs-number">0</span>] = C[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">Catalan_number</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span>	<span class="hljs-comment">//递推</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++)<br>    &#123;<br>        C[i] = (<span class="hljs-number">4</span> * i - <span class="hljs-number">2</span>) * C[i - <span class="hljs-number">1</span>] / (i + <span class="hljs-number">1</span>); <span class="hljs-comment">//除法放在最后防止取整丢失小数部分</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> C[n];<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">Catalan_number</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span>	<span class="hljs-comment">//递归</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">0</span> || n ==<span class="hljs-number">1</span>)	<span class="hljs-comment">//递归边界</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>    &#123;<br>        sum += Catalan_number(i) * Catalan_number(n - i - <span class="hljs-number">1</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> sum;<br>&#125;<br><span class="hljs-comment">/*当然还可以通过组合数来计算卡特兰数，这里就不贴代码了*/</span><br></code></pre></td></tr></table></figure>
+
+<p>上面代码运行的结果与用栈模拟得到的结果一致。</p>
+<h2 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h2><p>除了出栈顺序能构成卡特兰数数列，也有其他问题有着同样的结果</p>
+<h3 id="「括号匹配」"><a href="#「括号匹配」" class="headerlink" title="「括号匹配」"></a><strong>「括号匹配」</strong></h3><blockquote>
+<p>对于 n 对括号，其共有多少种合法的匹配方式？</p>
+</blockquote>
+<p>对于这个问题，我们有着两种解决方法，分别对应卡特兰数的两种公式。</p>
+<ol>
+<li><p>我们任取一对括号，其他的括号组成的匹配方式分别为A，B，于是n对括号的匹配方式就是A(B)，其中AB的和种类数为n-1，A的括号数可以从0取到n-1，于是和种类数就是这种匹配方式的0到n-1的求和，也正是<b><i>公式(1)</i></b>&gt;对应的卡特兰数计算式。</p>
+</li>
+<li><p>括号的合法匹配方式为：一个左括号对应一个右括号，且左括号必须要在右括号前面出现。为了方便说明，这里将左括号记作 +1，右括号记作 -1，则一个合法序列和一个非法序列可以表示为如下形式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs text">()(()) -&gt; +1 -1 +1 +1 -1 -1<br>())()( -&gt; +1 -1 -1 +1 -1 +1<br></code></pre></td></tr></table></figure>
+
+<p>我们可以证明，对于合法序列来说，其<b>「所有前缀和」</b>必然大于等于 0，而对于非法序列来说，其必然存在前缀和小于 0 的情况。下面我们将尝试去推导序列长度为 2n 时非法序列的数量，然后用总排列数减去非法序列数即可得到合法序列数。</p>
+<p>对于一个非法序列，我们找到其<b>「第一个」</b>和小于 0 的前缀，并对其中每一位进行取反。以上面的非法序列为例，我们会得到：<code>-1 +1 +1 +1 -1 +1</code>，此时该序列中共有 <code>3+1</code> 个 +1 和 <code>3-1</code> 个 -1。直观上来看，第一个小于 0 的前缀和必为 -1，即 -1 比 +1 多一个，取反后则 -1 比 + 1 少一个，这样总数上看 +1 必变为 <code>n+1</code> 个，-1 则变为 <code>n-1</code> 个（因为原来二者相等）。我们可以将该结论推广为（严格的证明省略）：</p>
+<blockquote>
+<p>对于 <code>n</code> 对括号的每种非法匹配序列 A，都会有一个含有 <code>n+1</code> 个 +1 和 <code>n-1</code> 个 -1 的序列 B 与其一一对应。</p>
+</blockquote>
+<p>非法序列的数量我们可以通过排列数$C^{n+1}<em>{2n}$来计算（等价于$C^{n-1}</em>{2n}$），即非法序列的数量为$C^{n-1}<em>{2n}$ 。而序列的总数量为$C^{n}</em>{2n}$ （从 2n 个位置中选择 n 个位置放左括号，无先后顺序)，因此合法的匹配序列数量为：<br>$$<br>C_n = C^{n}<em>{2n} - C^{n-1}</em>{2n} = \frac{C^{n}_{2n}}{n+1}<br>$$<br>即对应的卡特兰数公式(3)。</p>
+</li>
+</ol>
+<h3 id="「单调路线」"><a href="#「单调路线」" class="headerlink" title="「单调路线」"></a>「单调路线」</h3><blockquote>
+<p>在一个 <code>n*n</code> 的方格中从左下角走到右上角，不穿过对角线的单调路线有多少种？</p>
+</blockquote>
+<p>此问题同样可以通过前缀和来发现种类数仍然是个卡特兰数，因为向上走的数量不能多余向右走的数量，否则就会穿过对角线。</p>
+<p><img src="1.png"></p>
+<h3 id="「满二叉树」"><a href="#「满二叉树」" class="headerlink" title="「满二叉树」"></a>「满二叉树」</h3><blockquote>
+<p>对于有 <code>n+1</code> 个叶子节点，其能构成多少种形状不同的满二叉树？</p>
+</blockquote>
+<p>需要注意的是这里的满二叉树和国内定义不同，取的是国际定义：a binary tree T is full if each node is either a leaf or possesses exactly two childnodes. 意为：如果一棵二叉树的结点要么是叶子结点，要么它有两个子结点，这样的树就是满二叉树。</p>
+<p>我们可以证明，满二叉树的分支数目为总个数减一（除了根节点每个结点都有一个指向父节点的分支），而去掉叶子结点，每个结点的度都为2，故分支数又等于总结点数减去叶子结点树后乘二，于是包含 <code>n+1</code> 个叶子节点的总节点个数为 <code>2n+1</code>，则除开根节点需要进行 <code>2n</code> 次扩展来形成满二叉树，如下图所示（月牙形表示叶子节点）。<b>扩展即从父节点向左或向右添加子节点的过程，左树的结点有2k个，则右数为2(n - k)个同样用乘法原理，然后遍历整个k即可同样得到卡特兰数的递推公式。</b></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="v2-bcb4ad4ccf5f896a06882d6b12177366_720w.jpg" alt="img" class="lazyload"></p>
+<p>此外，上图还可以看做 <code>n</code> 个节点组成不同二叉树的方案数，其中圆形表示节点，月牙形表示什么都没有，也就是n个结点任意二叉树我们可以将其补充为满二叉树（国际定义），此时节点数为2n+1。我们可以基于卡特兰数的递推关系得出该方案数即为 $C_n$。</p>
+<!----> LeetCode 96
+
+<h3 id="「多边形分形」"><a href="#「多边形分形」" class="headerlink" title="「多边形分形」"></a>「多边形分形」</h3><blockquote>
+<p>将 <code>n</code> 边的凸多边形以不相交的对角线分成 <code>n-2</code> 个三角形，共有多少种方法？</p>
+</blockquote>
+<p>这个问题我们需要从递归的角度来考虑。因为凸 <img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=n" alt="[公式]" class="lazyload"> 边形的任意一条边必定属于某一个三角形，所以我们以某一条边为基准，将这条边的两个顶点分别记作 <img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=P_1" alt="[公式]" class="lazyload"> 和 <img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=P_%7Bn%7D" alt="[公式]" class="lazyload">，将该凸多边形的顶点依序标记为 <img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=P_1,P_2,%5Cldots,P_%7Bn%7D" alt="[公式]" class="lazyload">，再在该凸多边形中选择任意一个不属于这两个顶点的顶点 <img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=P_k" alt="[公式]" class="lazyload">（<img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=2+%5Cle+k+%5Cle+n-1" alt="[公式]" class="lazyload">），来构成一个三角形，用这个三角形把该凸多边形划分为两个凸多边形，其中一个凸多边形为由 <img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=P_%7B1%7D,+P_%7B2%7D,+%5Cldots,+P_%7Bk%7D" alt="[公式]" class="lazyload"> 构成的凸 <img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=k" alt="[公式]" class="lazyload"> 边形，另一个则是由 <img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=P_%7Bk%7D,+P_%7Bk+1%7D,+%5Cldots,+P_%7Bn%7D" alt="[公式]" class="lazyload"> 构成的凸 <img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=n-k+1" alt="[公式]" class="lazyload"> 边形。根据乘法原理，问题的解 <img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=f(n)" alt="[公式]" class="lazyload"> 等价于凸 <img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=k" alt="[公式]" class="lazyload"> 边形的划分方案数乘以凸 <img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=n-k+1" alt="[公式]" class="lazyload"> 边形的划分方案数，遍历所有的 <img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=k" alt="[公式]" class="lazyload">，可以得到：</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=f(n)=%5Cleft%5C%7B%5Cbegin%7Barray%7D%7Bll%7D+%5Csum_%7Bk=2%7D%5E%7Bn-1%7D+f(k)f(n-k+1)+&+n+%5Cgeq+4,+n+%5Cin+%5Cmathbf%7BN%7D_%7B+%7D+%5C%5C+1+&+n=2,3+%5Cend%7Barray%7D+%5Cright.+%5C%5C" alt="[公式]" class="lazyload"></p>
+<p>这也就是递推形式的卡特兰数，可以看到，对于一个凸 <img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=n" alt="[公式]" class="lazyload"> 边形来说，其分割方法数即等价于 $C_n$。下图给出了一个正六边形的分割方案，共有 $C_4 = 14$ 种。</p>
+<p><img src="format,f_auto.png"></p>
+<h3 id="「买票问题」"><a href="#「买票问题」" class="headerlink" title="「买票问题」"></a>「买票问题」</h3><blockquote>
+<p>假设一张门票 5 元，售票房没有额外的零钱。现在有 <code>m</code> 个人持有 5 元的纸币，<code>n</code> 个人持有 10 元的纸币排队买票，问有多少种排队方式，可以让每个人都买到电影票。</p>
+</blockquote>
+<p>找零问题的本质其实就是要让持有 5 元纸币的人和持有 10 元纸币的人保持匹配，且 5 元纸币的人需要在前面，如果将持有 5 元纸币的人编号为+1，持有 10 元纸币的人编号为-1，于是应该要求前缀和保持为大于0。不难理解这就是一个卡特兰数的问题。</p>
+<p>然而，与标准卡特兰数相比，这里的求解还有两个不同之处：首先是持有 5 元纸币的人数 <code>m</code> 和持有 10 元纸币的人数 <code>n</code> 不一定相等（注意 <code>m</code>必须大于等于 <code>n</code> ），这样我们不能直接套用卡特兰数的通项公式，而应该从原理出发重新推导，基于<strong>「总序列数减去非法序列数」</strong>的思想，合法序列数为 <img data-fancybox="gallery" data-sizes="auto" data-src="https://www.zhihu.com/equation?tex=C_%7Bm+n%7D%5E%7Bm%7D-C_%7Bm+n%7D%5E%7Bm+1%7D" alt="[公式]" class="lazyload">。此外，我们还需要考虑排队的先后顺序，因此总的排队方式数为：</p>
+<p><img src="https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+C_%7Bn%7D+&=C_%7Bm+n%7D%5E%7Bm%7D-C_%7Bm+n%7D%5E%7Bm+1%7D+%5C%5C+&=%5Cfrac%7B(m+n)+!%7D%7Bm+!+*+n+!%7D-%5Cfrac%7B(m+n)+!%7D%7B(m+1)+!+*(n-1)+!%7D+%5C%5C+&=%5Cfrac%7B(m+n)+!%7D%7Bm+!+*+n+!%7D-%5Cfrac%7B(m+n)+!+*+%5Cfrac%7B1%7D%7Bm+1%7D+*+n%7D%7Bm+!+*+n+!%7D+%5C%5C+&=%5Cfrac%7B(m+n)+!%7D+%7Bm+!+*+n+!%7D+*%5Cleft(1-%5Cfrac%7B1%7D%7Bm+1%7D+*+n%5Cright)+%5C%5C+&=%5Cfrac%7B(m+n)+!%7D+%7Bm+!+*+n+!%7D+*+%5Cfrac%7Bm+1-n%7D%7Bm+1%7D+%5C%5C+A_n+&=+C_%7Bn%7D+*+m+!+*+n+!+%5C%5C+&=+(m+n)!+*+%5Cfrac+%7Bm+1-n%7D%7Bm+1%7D+%5Cend%7Baligned%7D+%5C%5C"></p>
+
   </article>
 
   
@@ -266,7 +340,7 @@
                               <button class="mdui-fab catalog" style="overflow:unset;">
                                   <i class="nexmoefont icon-i-catalog"></i>
                                   <div class="nexmoe-toc">
-                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%88%E4%B8%8E%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">栈与卡特兰数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%85%A5"><span class="toc-number">1.1.</span> <span class="toc-text">引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">问题分析</span></a></li></ol></li></ol>
+                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%88%E4%B8%8E%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">栈与卡特兰数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%85%A5"><span class="toc-number">1.1.</span> <span class="toc-text">引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">问题分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">相关问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%80%8C%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D%E3%80%8D"><span class="toc-number">1.3.1.</span> <span class="toc-text">「括号匹配」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%80%8C%E5%8D%95%E8%B0%83%E8%B7%AF%E7%BA%BF%E3%80%8D"><span class="toc-number">1.3.2.</span> <span class="toc-text">「单调路线」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%80%8C%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E3%80%8D"><span class="toc-number">1.3.3.</span> <span class="toc-text">「满二叉树」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%80%8C%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%88%86%E5%BD%A2%E3%80%8D"><span class="toc-number">1.3.4.</span> <span class="toc-text">「多边形分形」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%80%8C%E4%B9%B0%E7%A5%A8%E9%97%AE%E9%A2%98%E3%80%8D"><span class="toc-number">1.3.5.</span> <span class="toc-text">「买票问题」</span></a></li></ol></li></ol></li></ol>
                                   </div>
                               </button>
                           
@@ -298,10 +372,10 @@
 
  
 
-<script async src="../../../../js/app.js?v=1650558098721"></script>
+<script async src="../../../../js/app.js?v=1650617606571"></script>
 
 
-	<script async src="../../../../js/search.js?v=1650558098721"></script>
+	<script async src="../../../../js/search.js?v=1650617606571"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
