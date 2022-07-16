@@ -15,24 +15,20 @@
     <meta name="description" content="本文基于树的基础介绍了一种集合内元素不相交的集合的构造方法，以及集合之间合并与集合内元素查询的方法，并且基于这种方法提出路径压缩的优化方式，仅供自学使用，转载随意。  [TOC] 并查集&amp;带权并查集并查集简介现给出n个元素，分属不同的集合，我们要进行以下两种操作：  给出两个元素的关系，满足这一关系的两个元素所属集合合并。（即：x，y是亲戚，则x的亲戚也是y的亲戚，于是x，y所处两个集合可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="并查集">
-<meta property="og:url" content="https://pepperrcat.github.io/2022/04/09/%E5%B9%B6%E6%9F%A5%E9%9B%86/index.html">
+<meta property="og:url" content="https://peperrcat.github.io/2022/04/09/%E5%B9%B6%E6%9F%A5%E9%9B%86/index.html">
 <meta property="og:site_name" content="花椒猫猫的小窝">
 <meta property="og:description" content="本文基于树的基础介绍了一种集合内元素不相交的集合的构造方法，以及集合之间合并与集合内元素查询的方法，并且基于这种方法提出路径压缩的优化方式，仅供自学使用，转载随意。  [TOC] 并查集&amp;带权并查集并查集简介现给出n个元素，分属不同的集合，我们要进行以下两种操作：  给出两个元素的关系，满足这一关系的两个元素所属集合合并。（即：x，y是亲戚，则x的亲戚也是y的亲戚，于是x，y所处两个集合可">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://pepperrcat.github.io/2022/04/09/%E5%B9%B6%E6%9F%A5%E9%9B%86/1.png">
-<meta property="og:image" content="https://pepperrcat.github.io/2022/04/09/%E5%B9%B6%E6%9F%A5%E9%9B%86/2.png">
-<meta property="og:image" content="https://pepperrcat.github.io/2022/04/09/%E5%B9%B6%E6%9F%A5%E9%9B%86/3.png">
 <meta property="article:published_time" content="2022-04-09T07:16:00.000Z">
-<meta property="article:modified_time" content="2022-04-21T16:14:38.508Z">
-<meta property="article:author" content="Peper Cat">
+<meta property="article:modified_time" content="2022-07-16T15:27:52.677Z">
+<meta property="article:author" content="Pepperr Cat">
 <meta property="article:tag" content="树">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pepperrcat.github.io/2022/04/09/%E5%B9%B6%E6%9F%A5%E9%9B%86/1.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
     
-    <link rel="stylesheet" href="../../../../lib/mdui_043tiny/css/mdui.css?v=1653399448157">
-    <link rel="stylesheet" href="../../../../lib/iconfont/iconfont.css?v=1653399448157">
-    <link rel="stylesheet" href="../../../../css/style.css?v=1653399448157">
+    <link rel="stylesheet" href="../../../../lib/mdui_043tiny/css/mdui.css?v=1657985281302">
+    <link rel="stylesheet" href="../../../../lib/iconfont/iconfont.css?v=1657985281302">
+    <link rel="stylesheet" href="../../../../css/style.css?v=1657985281302">
      
     
 <meta name="generator" content="Hexo 6.0.0"></head>
@@ -46,15 +42,15 @@
                 <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
                 <div class="mdui-toolbar-spacer"></div>
                 <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-                <a href="../../../../index.html" title="Peper Cat" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.jpg" alt="Peper Cat"></a>
+                <a href="../../../../index.html" title="Pepperr Cat" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.jpg" alt="Pepperr Cat"></a>
             </div>
         </div>
     </div>
     <div id="nexmoe-header">
         <div class="nexmoe-drawer mdui-drawer" id="drawer">
     <div class="nexmoe-avatar mdui-ripple">
-        <a href="../../../../index.html" title="Peper Cat">
-            <img src="/images/avatar.jpg" alt="Peper Cat" alt="Peper Cat">
+        <a href="../../../../index.html" title="Pepperr Cat">
+            <img src="/images/avatar.jpg" alt="Pepperr Cat" alt="Pepperr Cat">
         </a>
     </div>
     <div class="nexmoe-count">
@@ -180,10 +176,10 @@
     
 </aside>
     <div class="nexmoe-copyright">
-        &copy; 2022 Peper Cat
+        &copy; 2022 Pepperr Cat
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
         & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
-        <br><audio src="https://cdn.jsdelivr.net/gh/PepperrCat/PepperrCat.github.io@master/music/1532139173.mp3" controls></audio>
+        <br><audio src="https://cdn.jsdelivr.net/gh/PepperrCat/PepperrCat.github.io@master/music/1532139173.mp3" controls width = 300></audio>
     </div>
 </div><!-- .nexmoe-drawer -->
     </div>
@@ -218,16 +214,27 @@
 <h3 id="“并”"><a href="#“并”" class="headerlink" title="“并”"></a>“并”</h3><p>假设我们已知两个元素A、B存在关系，他们分属集合 <strong>α</strong> 和 <strong>β</strong> ，所以我们现在要合并集合<strong>α</strong> 和 <strong>β</strong> 。如何实现？两个集合分属两颗树，我们现在要把两棵树合成一棵树，只需要将元素A的根结点的父节点指向B元素的根节点即可，反之亦可。也就是把<strong>α</strong> 和 <strong>β</strong> 两个集合的<u>根节点建立父子联系</u>，我们就很轻松的实现了<strong>【并】</strong>的操作了。</p>
 <h3 id="”查“"><a href="#”查“" class="headerlink" title="”查“"></a>”查“</h3><p>根据我们建立的集合的特点，两个元素要分属一个集合，判断集合的最明显的特征就是根节点，也就是说，如果两个元素的根节点相同，那么他们自然就分属一个集合了。那我们只需要查询两个元素的根节点，判断两个根节点是否为同一个根节点就OK了。于是现在的问题来到了如何查找根节点，其实运用递归的方法也很容易实现，我们递归访问该元素的父节点，不停向上访问，<u>最后访问到结点的父节点是本身的时候就访问到了根节点了</u>。判断两个根节点就能实现<strong>【查】</strong>的操作了</p>
 <h3 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h3><p>我们根据刚刚的讨论可以发现，<strong>并查集的操作的关键都是访问元素的根结点</strong>，而与其他元素如何联系就没有意义了，因此其时间复杂度取决于树的深度，如果一个树是斜树，或者类似斜树的形式，那么并查集的时间优化就几乎没有了。我们在并查集的时候于是我们寻找进行优化方式，最好能对树的深度进行缩短，尽量形成下图的形式，使得树的深度变成2，这样并查集的时间复杂度就会陡然下降。因此这里提出路径压缩的方法来优化树的结构。</p>
-<p><img data-fancybox="gallery" data-sizes="auto" data-src="1.png" alt="1" class="lazyload"></p>
+<div align=center>
+    <img src = '1.png'>
+</div>
+
+
+
 <p><strong>路径压缩</strong>：我们在向上访问父节点时候，只需把经过的每个节的父结点都改成根节点，就能让树的形状尽量接近上图的形状。这种路径压缩可以大大优化树的结构，使得树的深度更小，使得时间复杂度在完全体情况下在<strong>O(1)时间复杂度</strong>就能找到根节点。并查集效率极度提高。</p>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>用数组链表构造的树都可以实现并查集操作，这里我们都使用链表的形式实现（注意指针的使用）。</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-keyword">int</span> val;<br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span> *<span class="hljs-title">father</span>;</span><br>&#125; element;<br><br><span class="hljs-function">element *<span class="hljs-title">find</span><span class="hljs-params">(element *node)</span> <span class="hljs-comment">//递归实现根节点查询函数</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (node-&gt;father != node) <span class="hljs-comment">//递归边界</span><br>    &#123;<br>        element *root = find(node-&gt;father);<br>        node-&gt;father = root; <span class="hljs-comment">//路径压缩，路过结点的父节点都指向根结点。</span><br>        <span class="hljs-keyword">return</span> node-&gt;father;<br>    &#125;<br>    <span class="hljs-keyword">return</span> node;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">unionset</span><span class="hljs-params">(element *node_1, element *node_2)</span> <span class="hljs-comment">//并函数，这里把前一个的父节点设为后一个的根节点</span></span><br><span class="hljs-function"></span>&#123;<br>    element *root = find(node_2);<br>    node_1-&gt;father = root;<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">create</span><span class="hljs-params">(element *node, <span class="hljs-keyword">int</span> value)</span> <span class="hljs-comment">//创建集合函数</span></span><br><span class="hljs-function"></span>&#123;<br>    node-&gt;val = value;<br>    node-&gt;father = node; <span class="hljs-comment">//根节点的父节点为本身</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>至此，并查集的实现就成功完成了，当然，并查集有时候并不是单纯的亲戚的亲戚是亲戚的关系，而可能存在关系权重的问题了，这个时候就需要使用加权的并查集了。</p>
 <h2 id="带权并查集"><a href="#带权并查集" class="headerlink" title="带权并查集"></a>带权并查集</h2><h3 id="“权”"><a href="#“权”" class="headerlink" title="“权”"></a>“权”</h3><p>首先要弄明白的是，何为【权】。权，即为两个元素之间关系的一个度量值，一般已知两个元素关系的权值，和其中一个元素与另一个非这两个元素的关系权值，则可以求出这两个元素中的另一个与非这两个元素的关系权值，且满足向量关系。如下图：已知权值r1、r2，则通过向量法可以求出r3=r2+r1（可能要进行模运算），通常，这个向量一般是由子结点指向父节点。所以，在并查集带权的情况下，我们在find（路径压缩）和union时就需要做权重的转移。如，把C路径压缩至A则需要将权值从r2变为r3。这是路径压缩的权值转换方式。<strong>特别的，在进行find路径压缩时，由于父节点变为根节点，容易失去原来父节点权重，因此需要记录下父节点权重。</strong></p>
-<p><img src="2.png"></p>
+<div align=center>
+    <img src = '2.png'>
+</div>
+
 <p>同时，合并集合也需要进行权值转换，这涉及根结点之间的权值转换。经过find的路径压缩，对于元素的根节点与该元素必然是直接相连的，因此权值转换就变成了下图形式。已知r1，r2和r3，现在要把A合并到C集合中，根据向量法，r4=r2+r3-r1，于是A-&gt;C的权值就求出了。</p>
-<p><img src="3.png"></p>
+<div align=center>
+    <img src = '3.png'>
+</div>
+
 <h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-keyword">int</span> val;<br>    <span class="hljs-keyword">int</span> weight;<br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span> *<span class="hljs-title">father</span>;</span><br>&#125; element;<br><br><span class="hljs-function">element *<span class="hljs-title">find</span><span class="hljs-params">(element *node)</span> <span class="hljs-comment">//递归实现根节点查询函数</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (node-&gt;father != node) <span class="hljs-comment">//递归边界</span><br>    &#123;<br>        element *root = find(node-&gt;father);	<br>        <span class="hljs-keyword">int</span> weight0 = node-&gt;father-&gt;weight;	<span class="hljs-comment">//这里要注意记录父节点</span><br>        node-&gt;father = root; <span class="hljs-comment">//路径压缩，路过结点的父节点都指向根结点。</span><br>        node-&gt;weight += weight0;	<span class="hljs-comment">//权重转移</span><br>        	<span class="hljs-comment">// node-&gt;weight %= MOD;</span><br>        <span class="hljs-keyword">return</span> node-&gt;father;<br>    &#125;<br>    <span class="hljs-keyword">return</span> node;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">union_set</span><span class="hljs-params">(element *node_1, element *node_2, <span class="hljs-keyword">int</span> k)</span></span><br><span class="hljs-function">    	<span class="hljs-comment">//并函数，这里把前一个的父节点设为后一个的根节点，前一个对后一个的权是k</span></span><br><span class="hljs-function"></span>&#123;<br>    element *root1 = find(node_1), *root2 = find(node_2);<br>    root1-&gt;weight = k + node_2-&gt;weight - node_1-&gt;weight;	<span class="hljs-comment">//向量和计算root1对root2的权值</span><br>    	<span class="hljs-comment">//root1-&gt;weight %= MOD;</span><br>    node_1-&gt;father = root;<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">create</span><span class="hljs-params">(element *node, <span class="hljs-keyword">int</span> value)</span> <span class="hljs-comment">//创建集合函数</span></span><br><span class="hljs-function"></span>&#123;<br>    node-&gt;val = value;<br>    node-&gt;father = node; <span class="hljs-comment">//根节点的父节点为本身</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>至此，带权并查集的实现也就结束了。</p>
@@ -272,8 +279,8 @@
   
       
     <div class="nexmoe-post-copyright">
-        <strong>本文作者：</strong>Peper Cat<br>
-        <strong>本文链接：</strong><a href="../../../../https:/pepperrcat.github.io/2022/04/09/%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="https:&#x2F;&#x2F;pepperrcat.github.io&#x2F;2022&#x2F;04&#x2F;09&#x2F;%E5%B9%B6%E6%9F%A5%E9%9B%86&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;pepperrcat.github.io&#x2F;2022&#x2F;04&#x2F;09&#x2F;%E5%B9%B6%E6%9F%A5%E9%9B%86&#x2F;</a><br>
+        <strong>本文作者：</strong>Pepperr Cat<br>
+        <strong>本文链接：</strong><a href="../../../../https:/peperrcat.github.io/2022/04/09/%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="https:&#x2F;&#x2F;peperrcat.github.io&#x2F;2022&#x2F;04&#x2F;09&#x2F;%E5%B9%B6%E6%9F%A5%E9%9B%86&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;peperrcat.github.io&#x2F;2022&#x2F;04&#x2F;09&#x2F;%E5%B9%B6%E6%9F%A5%E9%9B%86&#x2F;</a><br>
         
             <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
         
@@ -340,10 +347,10 @@
 
  
 
-<script async src="../../../../js/app.js?v=1653399448165"></script>
+<script async src="../../../../js/app.js?v=1657985281310"></script>
 
 
-	<script async src="../../../../js/search.js?v=1653399448165"></script>
+	<script async src="../../../../js/search.js?v=1657985281310"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
